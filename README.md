@@ -68,3 +68,23 @@ Great, now we have a shell I can edit and take apart to understnad how things wo
 Let's just give it a title and take our first brake so I can digest what I'm doing and come back with clarity. Also push these changes.
 
 
+Day 1.5
+Alright, were back at it at night, and this time after spending time hopelessly trying to figure out a workflow I decided to ask chatgpt to guide me without givign me massive clues, and I somehow ended up listening to it mindlessly to get me started and give me a footing, in this case, I have now created a super quick and simple backedn using FastAPi and uvicorn, I am now getting the hang of requests, decorators,a nd handlers/routing I think.
+
+I now understand what a REST API is more clearly now, as well as the fact taht it is only one type of API, there are also others like SOAP and GraphQL. REST API uses the HTTP protocol, which includes standard methods such as GET, POST, PUT, DELETE. All the data is then represented in json format.
+
+POST adds data,
+GET retreives data
+PUT updates existing data
+DELETE, well... deletes existing data
+
+
+I understand hte backend enough to play with it now, the next thing I need to figure out is how to create a button that then triggers a HTTP request being sent to my API.
+w
+In my case, in React specifically, cause just doing onclick didnt work, or atleast idk the syntax for making it work like that. 
+
+I had ChatGPT code me the button component for me, since I didnt remember the syntax, that may have been lalziness. now I need to understand how to connect this React app to my python API, which probably is much simpler than I think, as they can just commuincate to each other over the url I believe. 
+
+But I'll do that tomorrow. It's almost 2AM, and I feel satisfied, and this post rock is really hitting hard rn.
+
+
