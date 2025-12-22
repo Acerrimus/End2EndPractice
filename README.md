@@ -88,3 +88,6 @@ I had ChatGPT code me the button component for me, since I didnt remember the sy
 But I'll do that tomorrow. It's almost 2AM, and I feel satisfied, and this post rock is really hitting hard rn.
 
 
+Day 2:
+
+Alright this morning I quickly resolved the CORS issue I was facing because my frontend and backend are unrelated. ficed that by inserting some boilerplate syntax from the CORS library I vaguely understand and dont deem worth learning since its just a browser thing.
