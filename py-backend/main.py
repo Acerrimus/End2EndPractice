@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from db import AddWorkout
+
 app = FastAPI()
 
 app.add_middleware(
@@ -29,3 +31,5 @@ def add_workout(name: str, username: str):
     }
     workouts.append(workout)
     return(workouts)
+
+AddWorkout()

@@ -91,3 +91,25 @@ But I'll do that tomorrow. It's almost 2AM, and I feel satisfied, and this post 
 Day 2:
 
 Alright this morning I quickly resolved the CORS issue I was facing because my frontend and backend are unrelated. ficed that by inserting some boilerplate syntax from the CORS library I vaguely understand and dont deem worth learning since its just a browser thing.
+
+Now I have to chose what database to update with these API requests. SQLite is my Go to normally, but I'm wondering if I should get my hands a bit dirtier with a client/server architecture.
+
+Hmm, I guess I can start with SQLite for now, since the important part is being end to end and quick?
+
+Migrating to PostgreSQL later may be fun/interesting.
+
+Lets get something running first, quick SQLite.
+
+Day 3, I've been busy with christmas, but I'm back now with spare tiem on my hands, I was meant to implement a quick SQLite databse as my source of truth but never got around to it, so lets do that, define my schema in code using hte python sqlite3 library, and see whats next.
+
+Okay done, that was way simpler than I thought, we just import sqlite3, starta  connection using the sqlite3.connect() method (conn = sqlite3.connect(workouts.db)), passing in the name of the db, and then we define our cursor using cursor = conn.cursor() and were ready to start executing SQL code using conn.execute()
+
+we can write out sql as a string ang then just pass it into conn.execute for making htings easy to see, or we can pass it straight in. 
+
+Now that I have a db, I have to create my 2 tables, and give them their scheme, and to do so I should vaguely relearn the syntax for SQL and the different formats we can store data in. 
+
+Day 4:
+
+I got busy with preparing to leave spain, now I'm back home and have had more than enough rest. We have a working db now. I just need to understand hwo to interact with it properly. The next step will be writing entries into it using just HTTP requests to the server by pressing a button. Once that works I can add a text field to allow the user to name their workouts, and submit that. 
+
+I also need to create a user system at some point. 
