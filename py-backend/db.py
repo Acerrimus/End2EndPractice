@@ -1,27 +1,41 @@
 import sqlite3
 
-# Starting and creating DB
+def connect():
+    conn = sqlite3.connect('workouts.db')
+    cursor = conn.cursor()
 
-conn = sqlite3.connect('workouts.db')
+def CreateTable():
 
-cursor = conn.cursor()
+    # Starting and creating DB
 
-cursor.execute("DROP TABLE IF EXISTS WORKOUTS")
+    conn = sqlite3.connect('workouts.db')
 
-sql = '''CREATE TABLE WORKOUTS(
+    cursor = conn.cursor()
+
+    cursor.execute("DROP TABLE IF EXISTS WORKOUTS")
+
+    # sql = '''CREATE TABLE WORKOUTS(
+    #     Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    #     Workout_name CHAR(20) NOT NULL,
+    #     Created_At DATETIME DEFAULT CURRENT_TIMESTAMP,
+    #     User_Id INT
+    # )'''
+
+    sql = '''CREATE TABLE WORKOUTS(
     Id INTEGER PRIMARY KEY AUTOINCREMENT,
     Workout_name CHAR(20) NOT NULL,
-    Created_At DATETIME DEFAULT CURRENT_TIMESTAMP,
-    User_Id INT
-)'''
+    Created_At DATETIME DEFAULT INT,
+    User_Id CHAR(20) UNIQUE
+    )'''
 
-cursor.execute(sql)
-print("SQL EXECUTED")
+    cursor.execute(sql)
+    print("SQL EXECUTED")
 
-conn.commit()
-conn.close()
+    conn.commit()
+    conn.close()
 
-def AddWorkout():
+
+def AddWorkoutDefault():
 
     conn = sqlite3.connect('workouts.db')
 
@@ -29,7 +43,7 @@ def AddWorkout():
 
     sql = '''
     INSERT INTO WORKOUTS 
-        values(null, 'TestOut',null, 1)
+        values(null, 'TestNow',null, 1)
     '''
 
     conn.execute(sql)
@@ -39,3 +53,16 @@ def AddWorkout():
     print("Workout Added")
 
     return 0
+
+def AddWorkout(name, username, datetime):
+    conn = sqlite3.connect('workouts.db')
+    cursor = conn.cursor()
+    user_id = username
+    sql = '''
+    INSERT INTO WORKOUTS
+        values(null,'{}','{}','{}');
+    '''.format(name,datetime,user_id)
+    cursor.execute(sql)
+    conn.commit()
+    conn.close()
+    print("Attempted")

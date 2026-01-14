@@ -1,7 +1,9 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from db import AddWorkout
+from datetime import datetime
+
+from db import AddWorkout, AddWorkoutDefault, CreateTable
 
 app = FastAPI()
 
@@ -15,7 +17,7 @@ app.add_middleware(
 
 @app.get("/")
 def root():
-    return{"status": "alive"}
+    return{"status": "Sahil is goated"}
 
 @app.get("/cunt")
 def root2():
@@ -23,13 +25,30 @@ def root2():
 
 workouts = []
 
-@app.put("/workout")
+@app.get("/addworkoutdef")
+def add_workout_default():
+    try:
+        AddWorkoutDefault()
+        print("Default added SUCCESSFULLY")
+    except Exception as e:
+        print("Errir adding workout:", e)
+    
+    return{"Workout" : "ADDED DEFAULT"}
+    
+
+@app.post("/addworkout")
 def add_workout(name: str, username: str):
-    workout = {
-        "name": name,
-        "username": username
-    }
-    workouts.append(workout)
+    # datetime = datetime.now().isoformat(timespec='minutes')
+    datetime = 1
+    print("stage1")
+    try:
+        AddWorkout(name, username, datetime)
+        print("Workout added successfully")
+    except Exception as e:
+        print("Error adding workout:", e)
+
     return(workouts)
 
-AddWorkout()
+@app.get("/clear")
+def clear_table():
+    CreateTable()
