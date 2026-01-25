@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from datetime import datetime
 
-from db import AddWorkout, AddWorkoutDefault, CreateTable
+from db import *
 
 app = FastAPI()
 
@@ -49,6 +49,14 @@ def add_workout(name: str, username: str):
 
     return(workouts)
 
+
+@app.get("/workoutslist")
+# TODO: Return a dictionoary instead of a list
+def list_workouts():
+    return(ListWorkouts())
+
+
 @app.get("/clear")
 def clear_table():
     CreateTable()
+    return

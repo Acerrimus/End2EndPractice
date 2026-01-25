@@ -1,15 +1,19 @@
-function AddWorkoutButton() {
-  function handleClick() {
-    fetch("http://127.0.0.1:8000/workout?name=Pushups&username=sahil", {
-      method: "PUT"
-    })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-      });
-  }
+import React from "react";
 
-  return <button onClick={handleClick}>Add workout</button>;
+function AddWorkoutButton() {
+  function AddWorkout() {
+    fetch("http://127.0.0.1:8000/addworkout?name=test&username=Sahil", {
+      method: "POST",
+    })
+      .then((res) => res.json().catch(() => ({})))
+      .then((data) => {
+        console.log(data);
+        // notify other components to refresh
+        window.dispatchEvent(new Event("workouts-updated"));
+      })
+      .catch((err) => console.error("Add workout failed", err));
+  }
+  return <button onClick={AddWorkout}>Add Workout</button>;
 }
 
-export default AddWorkoutButton
+export default AddWorkoutButton;

@@ -3,6 +3,7 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  display: flex;
 }
 
 .logo {
@@ -11,10 +12,10 @@
   will-change: filter;
   transition: filter 300ms;
 }
-.logo:hover {
+.workouts:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
-.logo.react:hover {
+.workouts.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
@@ -39,4 +40,20 @@
 
 .read-the-docs {
   color: #888;
+}
+
+.login {
+  align-self: flex-start;
+}
+
+.workouts {
+  background-color: #1a1a1a;
+  padding: 0.7em;
+  border-radius: 1vw;
+  margin: 1em;
+}
+
+.workouts-list {
+    /* display: flex; */
+
 }

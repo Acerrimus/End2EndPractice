@@ -25,7 +25,7 @@ def CreateTable():
     Id INTEGER PRIMARY KEY AUTOINCREMENT,
     Workout_name CHAR(20) NOT NULL,
     Created_At DATETIME DEFAULT INT,
-    User_Id CHAR(20) UNIQUE
+    User_Id CHAR(20)
     )'''
 
     cursor.execute(sql)
@@ -66,3 +66,24 @@ def AddWorkout(name, username, datetime):
     conn.commit()
     conn.close()
     print("Attempted")
+
+
+def ListWorkouts():
+    conn = sqlite3.connect('workouts.db')
+    cursor = conn.cursor()
+
+    cursor.execute('''
+        SELECT Workout_name, User_Id, Created_At
+        FROM WORKOUTS 
+        ''')
+    
+    workouts = cursor.fetchall()
+    for w in workouts:
+        print(w)
+        # print(w[Workout_name])
+    conn.commit()
+    conn.close()
+
+    return workouts
+    
+    
